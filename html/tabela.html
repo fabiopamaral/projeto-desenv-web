@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Programa de Apoio a Atletas DM1</title>
+    <link rel="stylesheet" href="/styles/imc.css" />
+    <link rel="stylesheet" href="/styles/tabela.css" />
+    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon" />
+    <style></style>
+  </head>
+
+  <body>
+    <ul class="menu">
+      <li><a href="/html/tabela.html5">Referências</a></li>
+      <li><a href="/html/tabela_alimentos.html">Tabela de Alimentos</a></li>
+      <li><a href="/html/tabela.html">Projeto</a></li>
+      <li><a href="/index.html">Home</a></li>
+    </ul>
+
+    <h1>PAAD: Programa de Apoio a Atletas DM1</h1>
+    <form
+      id="formulario"
+      action="/pagina-processa-dados-do-form"
+      method="post"
+      class="tema-saude"
+    >
+      <fieldset>
+        <legend>Dados Gerais</legend>
+        <label for="nome">Nome:</label>
+        <input type="text" minlength="3" id="nome" />
+
+        <label for="idade">Idade:</label>
+        <input type="text" id="idade" />
+
+        <label for="peso">Peso em KG:</label>
+        <input type="text" id="peso" />
+
+        <label for="altura">Altura em CM:</label>
+        <input type="text" id="altura" />
+      </fieldset>
+      <fieldset>
+        <legend>Esporte</legend>
+
+        <label for="tipo-esporte">Tipo:</label>
+        <select id="tipo_esporte" disabled>
+          <option value="">Selecione</option>
+          <option value="Futebol">Futebol</option>
+          <option value="Corrida">Corrida</option>
+          <option value="Basquete">Basquete</option>
+          <option value="Musculação">Musculação</option>
+          <option value="Natação">Natação</option>
+          <option value="Vôlei">Vôlei</option>
+        </select>
+        <label for="frequencia">Frequência (em dias na semana):</label>
+        <input type="number" id="frequencia" min="1" max="7" disabled />
+        <label for="horario">Horário:</label>
+        <input type="time" id="horario" disabled />
+      </fieldset>
+
+      <fieldset>
+        <button type="submit" id="form">Enviar sua resposta</button>
+        <button type="reset" class="resetBtn">Refazer o Formulário</button>
+      </fieldset>
+    </form>
+    <span id="imc"></span>
+    <h2>Informações sobre os Esportes</h2>
+    <table>
+      <tr>
+        <th>Esporte</th>
+        <th>Tempo Médio Praticado</th>
+        <th>Vídeo (link)</th>
+      </tr>
+      <tr>
+        <td>Futebol</td>
+        <td>1.5 - 2 horas</td>
+        <td>Link do vídeo</td>
+      </tr>
+      <tr>
+        <td>Corrida</td>
+        <td>30 minutos - 1 hora</td>
+        <td>Link do vídeo</td>
+      </tr>
+      <tr>
+        <td>Basquete</td>
+        <td>1.5 - 2 horas</td>
+        <td>Link do vídeo</td>
+      </tr>
+      <tr>
+        <td>Musculação</td>
+        <td>1 hora</td>
+        <td>Link do vídeo</td>
+      </tr>
+      <tr>
+        <td>Natação</td>
+        <td>1 - 1.5 horas</td>
+        <td>Link do vídeo</td>
+      </tr>
+      <tr>
+        <td>Vôlei</td>
+        <td>1.5 - 2 horas</td>
+        <td>Link do vídeo</td>
+      </tr>
+    </table>
+    <footer>
+      <p>
+        Programa de Apoio a Atletas DM1 © 2024 Todos os direitos reservados.
+      </p>
+    </footer>
+
+    <script src="/js/tabela.js"></script>
+  </body>
+</html>
