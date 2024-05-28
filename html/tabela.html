@@ -6,13 +6,13 @@
     <title>Programa de Apoio a Atletas DM1</title>
     <link rel="stylesheet" href="/styles/imc.css" />
     <link rel="stylesheet" href="/styles/tabela.css" />
-    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/img/favi.jpeg" type="image/x-icon" />
     <style></style>
   </head>
 
   <body>
     <ul class="menu">
-      <li><a href="/html/tabela.html5">Referências</a></li>
+      <li><a href="/html/referencia.html">Referências</a></li>
       <li><a href="/html/tabela_alimentos.html">Tabela de Alimentos</a></li>
       <li><a href="/html/tabela.html">Projeto</a></li>
       <li><a href="/index.html">Home</a></li>
@@ -28,22 +28,27 @@
       <fieldset>
         <legend>Dados Gerais</legend>
         <label for="nome">Nome:</label>
-        <input type="text" minlength="3" id="nome" />
+        <input
+          type="text"
+          minlength="3"
+          id="nome"
+          placeholder="Ex: Fabiana..."
+        />
 
         <label for="idade">Idade:</label>
-        <input type="text" id="idade" />
+        <input type="text" id="idade" placeholder="Ex: 25" />
 
-        <label for="peso">Peso em KG:</label>
-        <input type="text" id="peso" />
+        <label for="peso">Peso em kg:</label>
+        <input type="text" id="peso" placeholder="Ex: 65.5" />
 
-        <label for="altura">Altura em CM:</label>
-        <input type="text" id="altura" />
+        <label for="altura">Altura em cm:</label>
+        <input type="text" id="altura" placeholder="Ex: 170" />
       </fieldset>
       <fieldset>
         <legend>Esporte</legend>
 
         <label for="tipo-esporte">Tipo:</label>
-        <select id="tipo_esporte" disabled>
+        <select id="tipo_esporte">
           <option value="">Selecione</option>
           <option value="Futebol">Futebol</option>
           <option value="Corrida">Corrida</option>
@@ -53,9 +58,9 @@
           <option value="Vôlei">Vôlei</option>
         </select>
         <label for="frequencia">Frequência (em dias na semana):</label>
-        <input type="number" id="frequencia" min="1" max="7" disabled />
+        <input type="number" id="frequencia" min="1" max="7" />
         <label for="horario">Horário:</label>
-        <input type="time" id="horario" disabled />
+        <input type="time" id="horario" />
       </fieldset>
 
       <fieldset>

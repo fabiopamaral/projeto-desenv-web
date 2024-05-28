@@ -2,7 +2,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: gainsboro;
+  background-color: #f0e6e6;
   /* Cor de fundo cinza */
 }
 
@@ -42,6 +42,7 @@ body {
   display: block;
   color: gainsboro;
   border: gainsboro solid 1px;
+  font-weight: 500;
   margin-right: 5px;
   border-radius: 10px;
   /* Cor do texto dos links */
@@ -101,8 +102,7 @@ footer {
 
 /* Estilos para o h1 */
 h1 {
-  margin: 0;
-  background-color: #eec409;
+  background-color: rgb(255, 174, 1);
   /* Cor de fundo salmão */
   color: white;
   /* Cor do texto branco */
@@ -113,10 +113,15 @@ h1 {
   width: 22%;
 }
 
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  margin-bottom: 100px;
+}
+
 img {
-  width: 30%;
-  position: absolute;
-  right: 50px;
-  top: auto;
-  z-index: 0;
+  width: 500px;
+  height: fit-content;
 }

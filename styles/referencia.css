@@ -6,31 +6,54 @@ body {
 }
 
 .menu {
+  display: flex;
+  flex-direction: row-reverse;
   list-style-type: none;
+  border-bottom-left-radius: 10px;
   margin: 0;
-  padding: 0;
+  /* Remove os marcadores de lista */
+
+  padding: 8px 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: rgb(255, 174, 1);
+  /* Cor de fundo da barra de menu */
   position: fixed;
+  /* Fixa a barra de menu na tela */
   top: 0;
+  /* Posiciona a barra de menu no topo da tela */
   right: 0;
-  width: 30%;
+  /* Posiciona a barra de menu à direita da tela */
+  width: 500px;
+  /* Define a largura da barra de menu */
 }
 
 .menu li {
+  position: relative;
   float: right;
+  margin-right: 8px;
+  padding: 8px;
+  /* Alinha os itens à direita */
 }
 
 .menu li a {
   display: block;
-  color: white;
+  color: gainsboro;
+  border: gainsboro solid 1px;
+  font-weight: 500;
+  margin-right: 5px;
+  border-radius: 10px;
+  /* Cor do texto dos links */
   text-align: center;
-  padding: 14px 16px;
+  padding: 8px;
+  /* Preenchimento interno dos itens */
   text-decoration: none;
+  /* Remove o sublinhado dos links */
 }
 
 .menu li a:hover {
   background-color: #eec409;
+  transition: 0.5s;
+  /* Cor de fundo ao passar o mouse sobre os links */
 }
 
 footer {
