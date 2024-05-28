@@ -1,38 +1,7 @@
 const body = document.querySelector('body')
 const form = document.getElementById('form')
 const imcResp = document.querySelector('#imc')
-const resetBtn = document.getElementById('resetBtn') // Corrigido o seletor
-
-form.addEventListener('click', (ev) => {
-  ev.preventDefault()
-
-  const nome = document.getElementById('nome').value
-  const idade = document.getElementById('idade').value
-  const peso = Number(document.getElementById('peso').value)
-  const altura = Number(document.getElementById('altura').value)
-
-  const imc = calcularImc(peso, altura)
-
-  const resposta = document.createElement('h3')
-
-  if (isNaN(imc)) {
-    return
-  }
-
-  resposta.innerHTML = `Nome: ${nome} <br/>Idade: ${idade}</br>IMC: ${imc.toFixed(2)}`
-  resposta.className = 'resp'
-
-  imcResp.classList.add('#imcResp')
-
-  const categoria = verificarCategoria(imc)
-  resposta.appendChild(categoria)
-  imcResp.appendChild(resposta)
-})
-
-resetBtn.addEventListener('click', () => {
-  form.reset()
-  imcResp.innerHTML = '' // Limpa a resposta
-})
+const resetBtn = document.querySelector('#resetBtn')
 
 function calcularImc(peso, altura) {
   if (isNaN(peso) || isNaN(altura) || peso < 0 || altura < 0) {
@@ -49,7 +18,6 @@ function calcularImc(peso, altura) {
 
 function verificarCategoria(imc) {
   const categoria = document.createElement('span')
-  categoria.className = 'cat'
 
   if (imc < 18.5) {
     categoria.innerHTML = '<br/>Você está abaixo do peso!'
@@ -66,3 +34,61 @@ function verificarCategoria(imc) {
   }
   return categoria
 }
+
+function mostrarResposta(resposta) {
+  const elementoResposta = document.createElement('h3')
+  elementoResposta.innerHTML = `Nome: ${resposta.nome} </br>Idade: ${resposta.idade}</br>IMC: ${resposta.imc}</br> ${resposta.categoria}`
+  elementoResposta.className = 'resp'
+
+  imcResp.appendChild(elementoResposta)
+}
+
+
+form.addEventListener('click', (ev) => {
+  ev.preventDefault()
+
+  const nome = document.getElementById('nome').value
+  const idade = document.getElementById('idade').value
+  const peso = Number(document.getElementById('peso').value)
+  const altura = Number(document.getElementById('altura').value)
+
+  const imc = calcularImc(peso, altura)
+
+
+  if (isNaN(imc)) {
+    return
+  }
+
+  const resposta = {
+    nome,
+    idade,
+    imc: imc.toFixed(2),
+    categoria: verificarCategoria(imc).innerHTML
+  }
+
+  let imcDataArray = JSON.parse(localStorage.getItem('imcDataArray')) || [];
+  imcDataArray.push(resposta);
+  localStorage.setItem('imcDataArray', JSON.stringify(imcDataArray));
+
+  mostrarResposta(resposta)
+
+  document.getElementById('nome').value = ''
+  document.getElementById('idade').value = ''
+  document.getElementById('peso').value = ''
+  document.getElementById('altura').value = ''
+})
+
+resetBtn.addEventListener('click', () => {
+  imcResp.innerHTML = '' // Limpa a resposta
+  localStorage.removeItem('imcDataArray')
+})
+
+window.addEventListener('load', () => {
+  const dadosSalvos = JSON.parse(localStorage.getItem('imcDataArray')) || []
+  dadosSalvos.forEach(mostrarResposta)
+  if (dadosSalvos) {
+    const resposta = JSON.parse(dadosSalvos)
+    mostrarResposta(resposta)
+  }
+})
+
