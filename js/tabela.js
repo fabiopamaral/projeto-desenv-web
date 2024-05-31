@@ -40,6 +40,17 @@ function mostrarResposta(resposta) {
   elementoResposta.innerHTML = `Nome: ${resposta.nome} </br>Idade: ${resposta.idade}</br>IMC: ${resposta.imc}</br> ${resposta.categoria}`
   elementoResposta.className = 'resp'
 
+  const deleteBtn = document.createElement('button')
+  deleteBtn.textContent = 'Deletar'
+  deleteBtn.className = 'deleteBtn'
+  elementoResposta.appendChild(deleteBtn)
+
+  deleteBtn.addEventListener('click', () => {
+    let imcDataArray = JSON.parse(localStorage.getItem('imcDataArray')) || []
+    imcDataArray.pop()
+    localStorage.setItem('imcDataArray', JSON.stringify(imcDataArray));
+    elementoResposta.remove()
+  })
   imcResp.appendChild(elementoResposta)
 }
 
@@ -79,7 +90,7 @@ form.addEventListener('click', (ev) => {
 })
 
 resetBtn.addEventListener('click', () => {
-  imcResp.innerHTML = '' // Limpa a resposta
+  imcResp.innerHTML = ''
   localStorage.removeItem('imcDataArray')
 })
 

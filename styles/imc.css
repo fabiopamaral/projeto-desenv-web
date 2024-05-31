@@ -19,3 +19,19 @@
   width: 250px;
   height: 250px;
 }
+
+.deleteBtn {
+  width: 100px;
+  border-radius: 12px;
+  margin-top: 30px;
+  background-color: #4caf50;
+  color: white;
+  padding: 6px 0;
+  opacity: 1;
+  transition: 0.4s ease;
+}
+
+.deleteBtn:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
