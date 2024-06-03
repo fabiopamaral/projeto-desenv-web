@@ -17,7 +17,7 @@ body {
 
   padding: 8px 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: rgb(255, 174, 1);
   /* Cor de fundo da barra de menu */
   position: fixed;
   /* Fixa a barra de menu na tela */
